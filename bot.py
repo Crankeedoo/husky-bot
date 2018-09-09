@@ -9,6 +9,7 @@ import aiohttp
 import json
 import yarl
 from yarl import URL
+import html
 
 command_prefix='&'
 description = 'A bot for the North Hollywood High School sophomores\' server. If you\'re having an issue with the bot, ask Crankeedoo (Niko) for help.'
@@ -81,7 +82,7 @@ async def recipe(*, arg):
         embed.set_thumbnail(url=data['recipes'][0]['image_url'])
         embed.set_footer(text="Results taken from food2fork.com", icon_url="https://pbs.twimg.com/profile_images/2954753821/c6a678845d0263172873b01925ee5660_400x400.png")
         for i in range(0,5):
-            embed.add_field(name=data['recipes'][i]['title'], value="[Recipe from {}]({})".format(data['recipes'][i]['publisher'], data['recipes'][i]['source_url']), inline=False)
+            embed.add_field(name=(html.unescape(data['recipes'][i]['title'])), value=html.unescape("[Recipe from {}]({})".format(data['recipes'][i]['publisher'], data['recipes'][i]['source_url'])), inline=False)
         await bot.say(embed=embed)
     except IndexError:
         await bot.say("No results found for '{}'".format(arg))
