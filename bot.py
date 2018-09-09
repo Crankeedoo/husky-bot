@@ -1,6 +1,7 @@
 import discord
 from discord.ext import commands
-import config
+from boto.s3.connection import S3Connection
+s3 = S3Connection(os.environ['S3_KEY'], os.environ['S3_SECRET'])
 import random
 import asyncio
 import math
@@ -88,4 +89,4 @@ async def recipe(*, arg):
     except KeyError:
         await bot.say("Reached limit of 50 uses for the day, wait until tomorrow to make more searches")
 
-bot.run(config.token)
+bot.run(token)
