@@ -31,6 +31,11 @@ async def litty():
         time.sleep(2)
 
 @bot.command()
+async def miles():
+    for i in range(100):
+        await bot.say('<@!288500929400143873>')
+
+@bot.command()
 async def coin():
     # &coin
     # Flips a coin
