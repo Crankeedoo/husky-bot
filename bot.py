@@ -133,7 +133,7 @@ async def test():
 @classes.command()
 async def add(*, name : string):
 	if name.strip() is '':
-		await bot.say('You must provide the name of the class you want to add. Try again, and this time use `{}homework classes add [name]`'.format(command_prefix)
+		await bot.say('You must provide the name of the class you want to add. Try again, and this time use `{}homework classes add [name]`'.format(command_prefix))
 	else:
 		classes[name] = []
 		with open('homework.json', 'w') as outfile:
