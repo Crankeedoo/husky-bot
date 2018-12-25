@@ -104,5 +104,19 @@ async def ping():
 	
 	await bot.say("Pong!")
 	
+classes = {}
+
+@bot.group(aliases = ['hw'], pass_context = True)
+async def homework(ctx):
+	"""Commands relating to homework feature."""
+	
+	if ctx.invoked_subcommand is None:
+		await bot.say('Invalid subcommand!')
+
+@homework.command()
+async def test():
+	await bot.say('lol this is a useless command')
+	await bot.say('but if you\'re reading this that means the homework command is working')
+	await bot.say('so nice')
 	
 bot.run(os.environ.get('token'))
