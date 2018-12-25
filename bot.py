@@ -139,7 +139,8 @@ async def add(*, name : str):
 		with open('homework.json', 'w') as outfile:
 			json.dump(classesData, outfile)
 		with open('homework.json', 'r') as infile:
-			await bot.say(infile)
+			test = json.loads(infile)
+			await bot.say(test)
 		await bot.say('Successfully added new class "{}".'.format(name))
 		
 	
