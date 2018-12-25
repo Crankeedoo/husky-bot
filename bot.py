@@ -119,4 +119,15 @@ async def test():
 	await bot.say('but if you\'re reading this that means the homework command is working')
 	await bot.say('so nice')
 	
+@homework.group(pass_context = True)
+async def class(ctx):
+	"""Commands relating to classes for the homework feature."""
+	
+	if ctx.invoked_subcommand is None:
+		await bot.say('Invalid subcommand!')
+
+@class.command()
+async def test():
+	await bot.say('yep it still works, cool')
+	
 bot.run(os.environ.get('token'))
