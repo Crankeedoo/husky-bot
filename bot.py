@@ -126,7 +126,7 @@ async def classes(ctx):
 	if ctx.invoked_subcommand is None:
 		await bot.say('Invalid subcommand!')
 
-@class.command()
+@classes.command()
 async def test():
 	await bot.say('yep it still works, cool')
 	
