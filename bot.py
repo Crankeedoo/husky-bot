@@ -131,7 +131,7 @@ async def test():
 	await bot.say('yep it still works, cool')
 	
 @classes.command()
-async def add(*, name : string):
+async def add(*, name : str):
 	if name.strip() is '':
 		await bot.say('You must provide the name of the class you want to add. Try again, and this time use `{}homework classes add [name]`'.format(command_prefix))
 	else:
