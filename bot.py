@@ -120,7 +120,7 @@ async def test():
 	await bot.say('so nice')
 	
 @homework.group(pass_context = True)
-async def class(ctx):
+async def classes(ctx):
 	"""Commands relating to classes for the homework feature."""
 	
 	if ctx.invoked_subcommand is None:
