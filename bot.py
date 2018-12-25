@@ -104,7 +104,7 @@ async def ping():
 	
 	await bot.say("Pong!")
 	
-classes = {}
+classesData = {}
 
 @bot.group(aliases = ['hw'], pass_context = True)
 async def homework(ctx):
@@ -135,9 +135,9 @@ async def add(*, name : str):
 	if name.strip() is '':
 		await bot.say('You must provide the name of the class you want to add. Try again, and this time use `{}homework classes add [name]`'.format(command_prefix))
 	else:
-		classes[name] = []
+		classesData[name] = []
 		with open('homework.json', 'w') as outfile:
-			json.dump(classes, outfile)
+			json.dump(classesData, outfile)
 			print(json.loads(outfile))
 		await bot.say('Successfully added new class "{}".'.format(name))
 		
