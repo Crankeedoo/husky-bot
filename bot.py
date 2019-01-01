@@ -142,13 +142,6 @@ async def add(*, name : str):
 			test = json.loads(infile.read())
 			await bot.say(test)
 		await bot.say('Successfully added new class "{}".'.format(name))
-
-@bot.command()
-async def newyear():
-	for i in range(100):
-		await bot.say("Happy New Year!")
-		await asyncio.sleep(0.5)
-		
 		
 	
 bot.run(os.environ.get('token'))
