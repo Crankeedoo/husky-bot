@@ -147,7 +147,7 @@ async def add(*, name : str):
 async def newyear():
 	for i in range(100):
 		await bot.say("Happy New Year!")
-		await bot.sleep(0.5)
+		await asyncio.sleep(0.5)
 		
 		
 	
