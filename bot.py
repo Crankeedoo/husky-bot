@@ -67,7 +67,7 @@ async def randomnumber(left=None, right=None):
         await bot.say(random.randint(int(left), int(right)))
 	# Returns error message if arguments are invalid
     except:
-        await bot.say('You did not pass the required arguments: try again, and this time use `{}randomnumber [number] [number]`'.format(command_prefix))
+        await bot.say('You did not pass the required arguments: try again, and this time use `' + command_prefix + 'randomnumber [number] [number]`')
 
 @bot.command()
 async def recipe(*, arg):
@@ -100,8 +100,9 @@ async def recipe(*, arg):
 @bot.command()
 async def ping():
 	# Returns "pong"
-	"""Tests server ping"""
+	"""Tests server ping."""
 	
-	await bot.say("Bruh!")
+	await bot.say("Pong!")
+	
 	
 bot.run(os.environ.get('token'))
