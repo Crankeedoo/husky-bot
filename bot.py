@@ -24,7 +24,7 @@ async def on_ready():
     print('Logged in as')
     print(bot.user.name)
     print(bot.user.id)
-	print(discord.__version__)
+    print(discord.__version__)
     print('------')
 
 @bot.command()
