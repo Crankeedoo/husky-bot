@@ -67,7 +67,7 @@ async def randomnumber(left=None, right=None):
         await bot.say(random.randint(int(left), int(right)))
 	# Returns error message if arguments are invalid
     except:
-        await bot.say('You did not pass the required arguments: try again, and this time use `' + command_prefix + 'randomnumber [number] [number]`')
+        await bot.say('You did not pass the required arguments: try again, and this time use `{}randomnumber [number] [number]`'.format(command_prefix))
 
 @bot.command()
 async def recipe(*, arg):
@@ -104,5 +104,44 @@ async def ping():
 	
 	await bot.say("Pong!")
 	
+classesData = {}
+
+@bot.group(aliases = ['hw'], pass_context = True)
+async def homework(ctx):
+	"""Commands relating to homework feature."""
+	
+	if ctx.invoked_subcommand is None:
+		await bot.say('Invalid subcommand.')
+
+@homework.command()
+async def test():
+	await bot.say('lol this is a useless command')
+	await bot.say('but if you\'re reading this that means the homework command is working')
+	await bot.say('so nice')
+	
+@homework.group(pass_context = True)
+async def classes(ctx):
+	"""Commands relating to classes for the homework feature."""
+	
+	if ctx.invoked_subcommand is None:
+		await bot.say('Invalid subcommand.')
+
+@classes.command()
+async def test():
+	await bot.say('yep it still works, cool')
+	
+@classes.command()
+async def add(*, name : str):
+	if name.strip() is '':
+		await bot.say('You must provide the name of the class you want to add. Try again, and this time use `{}homework classes add [name]`'.format(command_prefix))
+	else:
+		classesData[name] = []
+		with open('homework.json', 'w') as outfile:
+			json.dump(classesData, outfile)
+		with open('homework.json', 'r') as infile:
+			test = json.loads(infile.read())
+			await bot.say(test)
+		await bot.say('Successfully added new class "{}".'.format(name))
+		
 	
 bot.run(os.environ.get('token'))
