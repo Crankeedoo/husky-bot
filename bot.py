@@ -102,7 +102,7 @@ async def ping():
 	# Returns "pong"
 	"""Tests server ping"""
 	
-	await bot.say("Pong!")
+	await bot.say("Bruh!")
 	
 classesData = {}
 
