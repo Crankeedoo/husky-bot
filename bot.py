@@ -139,5 +139,11 @@ async def add(ctx, *, name : str):
 			test = json.loads(infile.read())
 			await ctx.send(test)
 		await ctx.send('Successfully added new class "{}".'.format(name))
+
+@classes.command()
+async def list(ctx):
+	await ctx.send(len(classesData) + ' classes')
+	for c in classesData:
+		await ctx.send(c)
 	
 bot.run(os.environ.get('token'))
