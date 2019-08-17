@@ -142,7 +142,7 @@ async def add(ctx, *, name : str):
 
 @classes.command()
 async def list(ctx):
-	await ctx.send(len(classesData) + ' classes')
+	await ctx.send(str(len(classesData)) + ' classes')
 	for c in classesData:
 		await ctx.send(c)
 	
